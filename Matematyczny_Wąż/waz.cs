@@ -13,9 +13,9 @@ namespace Matematyczny_Wąż
         public waz()
         {
 
-            this.Image = Resources.waz;
+            this.Image = Resources.w2;
 
-            this.Size = new Size(87, 250);
+            this.Size = new Size(69,225);
             this.SizeMode = PictureBoxSizeMode.Zoom;
 
 

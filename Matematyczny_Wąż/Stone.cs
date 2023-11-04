@@ -15,9 +15,9 @@ namespace Matematyczny_Wąż
 
       public Stone() {
 
-            this.Image = Resources.kamyk;
+            this.Image = Resources.glaz;
 
-            this.Size = new Size(169, 127);
+            this.Size = new Size(187, 133);
             this.SizeMode = PictureBoxSizeMode.Zoom;
           
           

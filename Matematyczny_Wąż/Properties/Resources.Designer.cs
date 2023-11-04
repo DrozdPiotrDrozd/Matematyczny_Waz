@@ -63,6 +63,16 @@ namespace Matematyczny_Wąż.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap glaz {
+            get {
+                object obj = ResourceManager.GetObject("glaz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kamyk {
             get {
                 object obj = ResourceManager.GetObject("kamyk", resourceCulture);
@@ -73,9 +83,69 @@ namespace Matematyczny_Wąż.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap waz {
+        internal static System.Drawing.Bitmap w1 {
             get {
-                object obj = ResourceManager.GetObject("waz", resourceCulture);
+                object obj = ResourceManager.GetObject("w1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap w2 {
+            get {
+                object obj = ResourceManager.GetObject("w2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap w3 {
+            get {
+                object obj = ResourceManager.GetObject("w3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap w4 {
+            get {
+                object obj = ResourceManager.GetObject("w4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap w5 {
+            get {
+                object obj = ResourceManager.GetObject("w5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap w6 {
+            get {
+                object obj = ResourceManager.GetObject("w6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap zad1 {
+            get {
+                object obj = ResourceManager.GetObject("zad1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

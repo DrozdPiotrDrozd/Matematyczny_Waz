@@ -34,6 +34,11 @@
             timer2 = new System.Windows.Forms.Timer(components);
             timer3 = new System.Windows.Forms.Timer(components);
             timer4 = new System.Windows.Forms.Timer(components);
+            timer5 = new System.Windows.Forms.Timer(components);
+            tmrrownania = new System.Windows.Forms.Timer(components);
+            ans = new System.Windows.Forms.Timer(components);
+            look = new System.Windows.Forms.Timer(components);
+            stopgencount = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // Score
@@ -41,7 +46,7 @@
             Score.AutoSize = true;
             Score.Font = new Font("Segoe UI Black", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             Score.ForeColor = SystemColors.WindowText;
-            Score.Location = new Point(772, 9);
+            Score.Location = new Point(773, 25);
             Score.Name = "Score";
             Score.Size = new Size(101, 31);
             Score.TabIndex = 4;
@@ -72,6 +77,36 @@
             timer4.Interval = 20;
             timer4.Tick += Update;
             // 
+            // timer5
+            // 
+            timer5.Enabled = true;
+            timer5.Interval = 15;
+            timer5.Tick += timer5_Tick;
+            // 
+            // tmrrownania
+            // 
+            tmrrownania.Enabled = true;
+            tmrrownania.Interval = 10000;
+            tmrrownania.Tick += tmrrownania_Tick;
+            // 
+            // ans
+            // 
+            ans.Enabled = true;
+            ans.Interval = 11000;
+            ans.Tick += ans_Tick;
+            // 
+            // look
+            // 
+            look.Enabled = true;
+            look.Interval = 20;
+            look.Tick += look_Tick_1;
+            // 
+            // stopgencount
+            // 
+            stopgencount.Enabled = true;
+            stopgencount.Interval = 1000;
+            stopgencount.Tick += stopgencount_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -95,5 +130,10 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Timer timer5;
+        private System.Windows.Forms.Timer tmrrownania;
+        private System.Windows.Forms.Timer ans;
+        private System.Windows.Forms.Timer look;
+        private System.Windows.Forms.Timer stopgencount;
     }
 }
