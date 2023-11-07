@@ -30,13 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             Score = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             timer3 = new System.Windows.Forms.Timer(components);
             timer4 = new System.Windows.Forms.Timer(components);
             timer5 = new System.Windows.Forms.Timer(components);
             tmrrownania = new System.Windows.Forms.Timer(components);
-            ans = new System.Windows.Forms.Timer(components);
             look = new System.Windows.Forms.Timer(components);
             stopgencount = new System.Windows.Forms.Timer(components);
             SuspendLayout();
@@ -46,18 +44,12 @@
             Score.AutoSize = true;
             Score.Font = new Font("Segoe UI Black", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             Score.ForeColor = SystemColors.WindowText;
-            Score.Location = new Point(773, 25);
+            Score.Location = new Point(1099, 18);
             Score.Name = "Score";
             Score.Size = new Size(101, 31);
             Score.TabIndex = 4;
             Score.Text = "Score: 0";
             Score.Click += label1_Click;
-            // 
-            // timer1
-            // 
-            timer1.Enabled = true;
-            timer1.Interval = 10;
-            timer1.Tick += timer1_Tick;
             // 
             // timer2
             // 
@@ -89,12 +81,6 @@
             tmrrownania.Interval = 10000;
             tmrrownania.Tick += tmrrownania_Tick;
             // 
-            // ans
-            // 
-            ans.Enabled = true;
-            ans.Interval = 11000;
-            ans.Tick += ans_Tick;
-            // 
             // look
             // 
             look.Enabled = true;
@@ -111,8 +97,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.YellowGreen;
-            ClientSize = new Size(914, 600);
+            BackColor = Color.ForestGreen;
+            ClientSize = new Size(1262, 977);
             Controls.Add(Score);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
@@ -126,13 +112,11 @@
 
         #endregion
         private Label Score;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.Timer timer5;
         private System.Windows.Forms.Timer tmrrownania;
-        private System.Windows.Forms.Timer ans;
         private System.Windows.Forms.Timer look;
         private System.Windows.Forms.Timer stopgencount;
     }

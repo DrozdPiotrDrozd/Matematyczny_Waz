@@ -19,8 +19,8 @@ namespace Matematyczny_Wąż
 
             this.Size = new Size(187, 133);
             this.SizeMode = PictureBoxSizeMode.Zoom;
-          
-          
+            this.BackColor = Color.Transparent;
+            
 
         }
 

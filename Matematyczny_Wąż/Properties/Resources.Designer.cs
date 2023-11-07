@@ -83,6 +83,16 @@ namespace Matematyczny_Wąż.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap tlo {
+            get {
+                object obj = ResourceManager.GetObject("tlo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap w1 {
             get {
                 object obj = ResourceManager.GetObject("w1", resourceCulture);

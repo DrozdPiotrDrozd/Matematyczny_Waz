@@ -3,11 +3,20 @@ using System;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using static System.Windows.Forms.DataFormats;
 
 namespace Matematyczny_Wąż
 {
     public partial class Form1 : Form
     {
+        StartScreen startScreen = new StartScreen();
+
+        Reset reset = new Reset();
+        Stone s = new Stone();
+
+        Resume resume = new Resume();
+        Returntomenu returntomenu = new Returntomenu();
+        StartScreen startscreen = new StartScreen();
         niepoprawne2 np2 = new niepoprawne2();
         niepoprawne1 np1 = new niepoprawne1();
         poprawne p = new poprawne();
@@ -16,42 +25,35 @@ namespace Matematyczny_Wąż
         int punkty = 0;
         private System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         bool czyprawo = false, czylewo = false;
-        int szybkosctla;
-        Random rnd;
-        PictureBox[] kamienie;
-        int szybkosc_kamieni;
+
         public Form1()
         {
             InitializeComponent();
-            myTimer.Interval = 5; // Ustaw interwał
-            myTimer.Tick += new EventHandler(Timer_Tick); // Przypisz obsługę zdarzenia Tick
-            myTimer.Start(); // Rozpocznij działanie timera
-            gracz.Location = new Point(424, 376);
-            r.Location = new Point(440, 10);
+            //   myTimer.Interval = 5; // Ustaw interwał
+            //   myTimer.Tick += new EventHandler(Timer_Tick); // Przypisz obsługę zdarzenia Tick
+            //   myTimer.Start(); // Rozpocznij działanie timera
+            gracz.Location = new Point(600, 700);
+            resume.Location = new Point(610, 400);
+            returntomenu.Location = new Point(550, 200);
+            reset.Location = new Point(610, 600);
+            r.Location = new Point(600, 10);
             Controls.Add(r);
             Controls.Add(gracz);
-
+            
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+           
 
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void ruch(object sender, KeyEventArgs e)
         {
+            
             if (e.KeyCode == Keys.Left)
             {
                 czylewo = true;
@@ -62,39 +64,192 @@ namespace Matematyczny_Wąż
                 czyprawo = true;
 
             }
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            foreach (Stone s in StoneList)
+            if (e.KeyCode == Keys.Escape)
             {
-                s.Location = new Point(s.Location.X, s.Location.Y + 3);
+
+                Controls.Add(reset);
+                reset.Click += resecik;
+
+                Controls.Add(resume);
+                resume.Click += res;
+
+                Controls.Add(returntomenu);
+                returntomenu.Click += ret;
+
+                timer5.Stop();
+                timer4.Stop();
+                timer3.Stop();
+                timer2.Stop();
+                tmrrownania.Stop();
+                look.Stop();
+                stopgencount.Stop();
+                gracz.Visible = false;
+                np1.Visible = false;
+                np2.Visible = false;
+                p.Visible = false;
+                r.Visible = false;
+                Score.Visible = false;
+                
+                try
+                {
+                    foreach (Stone s in StoneList)
+                    {
+
+                        s.Visible = false;
+
+                    }
+                }
+                catch { }
             }
+            void resecik(Object sender, EventArgs e)
 
-
-
-            if (czylewo)
             {
-                gracz.Location = new Point(gracz.Location.X - 10, gracz.Location.Y);
+                try
+                {
+                    foreach (Stone s in StoneList)
+                    {
+                            StoneList.Remove(s);
+                            Controls.Remove(s);
+                        break;
+                    }
+                }
+                catch { }
+                try
+                {
+                    foreach (poprawne p in popList)
+                    {
+                            popList.Remove(p);
+                            Controls.Remove(p);
+                        break;
+                    }
+                }
+                catch { }
+                try
+                {
+                    foreach (niepoprawne1 np1 in npop1List)
+                    {
 
+                            npop1List.Remove(np1);
+                            Controls.Remove(np1);
+                        break;
+                    }
+                }
+                catch { }
+                try
+                {
+                    foreach (niepoprawne2 np2 in npop2List)
+                    {
+                            npop2List.Remove(np2);
+                            Controls.Remove(np2);
+                        break;
+                    }
+                }
+                catch { }
+                Controls.Remove(r);
+                punkty = 0;
+                Score.Text = $"Score: {punkty}";
+                timer5.Stop();
+                timer4.Stop();
+                timer3.Stop();
+                timer2.Stop();
+                tmrrownania.Stop();
+                look.Stop();
+                stopgencount.Stop();
+
+                timer5.Start();
+                timer4.Start();
+                timer3.Start();
+                timer2.Start();
+                tmrrownania.Start();
+                look.Start();
+                stopgencount.Start();
+                try
+                {
+                    foreach (Stone s in StoneList)
+                    {
+
+                        s.Visible = true;
+
+                    }
+                }
+                catch { }
+                gracz.Visible = true;
+                np1.Visible = true;
+                np2.Visible = true;
+                p.Visible = true;
+                r.Visible = true;
+                Score.Visible = true;
+
+                Controls.Remove(returntomenu);
+                Controls.Remove(resume);
+                Controls.Remove(reset);
             }
-            else if (czyprawo)
+            void ret(Object sender, EventArgs e)
+
             {
-                gracz.Location = new Point(gracz.Location.X + 10, gracz.Location.Y);
-
+                startscreen.Show();
+                this.Close();
             }
+            void res(Object sender, EventArgs e)
+
+            {
+                try
+                {
+                    foreach (Stone s in StoneList)
+                    {
+
+                        s.Visible = true;
+
+                    }
+                }
+                catch { }
+                gracz.Visible = true;
+                np1.Visible = true;
+                np2.Visible = true;
+                p.Visible = true;
+                r.Visible = true;
+                Score.Visible = true;
+
+                Controls.Remove(returntomenu);
+                Controls.Remove(resume);
+                Controls.Remove(reset);
+                timer5.Start();
+                timer4.Start();
+                timer3.Start();
+                timer2.Start();
+                tmrrownania.Start();
+                look.Start();
+                stopgencount.Start();
+            }
+            //   else if (e.KeyCode == Keys.Right)
+            //  {
+            //      czyprawo = true;
+
+            //  }
+
         }
+
+
+        /*     private void Timer_Tick(object sender, EventArgs e)
+             {
+                 foreach (Stone s in StoneList)
+                 {
+                     s.Location = new Point(s.Location.X, s.Location.Y + 3);
+                 }
+
+
+
+                 if (czylewo)
+                 {
+                     gracz.Location = new Point(gracz.Location.X - 10, gracz.Location.Y);
+
+                 }
+                 else if (czyprawo)
+                 {
+                     gracz.Location = new Point(gracz.Location.X + 10, gracz.Location.Y);
+
+                 }
+             }*/
 
 
         private void keyup(object sender, KeyEventArgs e)
@@ -123,10 +278,7 @@ namespace Matematyczny_Wąż
         public static List<niepoprawne2> npop2List = new List<niepoprawne2>();
         public static List<rownanie> rowList = new List<rownanie>();
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
 
-        }
 
         public void timer2_Tick(object sender, EventArgs e)
         {
@@ -136,7 +288,7 @@ namespace Matematyczny_Wąż
 
             int rY = -150;
             Random randomX = new Random();
-            int rx = randomX.Next(400, 800);
+            int rx = randomX.Next(800, 1024);
             this.Controls.Add(s);
 
             s.Location = new Point(rx, rY);
@@ -158,7 +310,7 @@ namespace Matematyczny_Wąż
 
             int rY = -150;
             Random randomX = new Random();
-            int rx = randomX.Next(30, 350);
+            int rx = randomX.Next(0, 600);
             this.Controls.Add(s);
 
             s.Location = new Point(rx, rY);
@@ -168,22 +320,22 @@ namespace Matematyczny_Wąż
 
 
         }
-        void subPunkty()
-        {
-            punkty = punkty - 1;
-            Score.Text = $"Score: {punkty}";
+        /* void subPunkty()
+         {
+             punkty = punkty - 1;
+             Score.Text = $"Score: {punkty}";
 
-        }
-        void sub2Punkty()
-        {
-            punkty = punkty - 100;
-            Score.Text = $"Score: {punkty}";
-        }
-        void AddPunkty()
-        {
-            punkty = punkty + 100;
-            Score.Text = $"Score: {punkty}";
-        }
+         }
+         void sub2Punkty()
+         {
+             punkty = punkty - 100;
+             Score.Text = $"Score: {punkty}";
+         }
+         void AddPunkty()
+         {
+             punkty = punkty + 100;
+             Score.Text = $"Score: {punkty}";
+         }*/
 
         private void Update(object sender, EventArgs e)
         {
@@ -191,16 +343,17 @@ namespace Matematyczny_Wąż
             {
                 foreach (Stone s in StoneList)
                 {
-                    foreach (waz w in Controls.OfType<waz>())
-                    {
-                        if (w.Bounds.IntersectsWith(s.Bounds))
-                        {
-                            StoneList.Remove(s);
-                            Controls.Remove(s);
-                            subPunkty();
 
-                        }
+                    if (gracz.Bounds.IntersectsWith(s.Bounds))
+                    {
+                        StoneList.Remove(s);
+                        Controls.Remove(s);
+                        punkty = punkty - 1;
+                        Score.Text = $"Score: {punkty}";
+                        // subPunkty();
+                        break;
                     }
+
                 }
             }
             catch { }
@@ -208,16 +361,17 @@ namespace Matematyczny_Wąż
             {
                 foreach (poprawne p in popList)
                 {
-                    foreach (waz w in Controls.OfType<waz>())
-                    {
-                        if (w.Bounds.IntersectsWith(p.Bounds))
-                        {
-                            popList.Remove(p);
-                            Controls.Remove(p);
-                            AddPunkty();
 
-                        }
+                    if (gracz.Bounds.IntersectsWith(p.Bounds))
+                    {
+                        popList.Remove(p);
+                        Controls.Remove(p);
+                        punkty = punkty + 100;
+                        Score.Text = $"Score: {punkty}";
+                        // AddPunkty();
+                        break;
                     }
+
                 }
             }
             catch { }
@@ -225,16 +379,17 @@ namespace Matematyczny_Wąż
             {
                 foreach (niepoprawne1 np1 in npop1List)
                 {
-                    foreach (waz w in Controls.OfType<waz>())
-                    {
-                        if (w.Bounds.IntersectsWith(np1.Bounds))
-                        {
-                            npop1List.Remove(np1);
-                            Controls.Remove(np1);
-                            sub2Punkty();
 
-                        }
+                    if (gracz.Bounds.IntersectsWith(np1.Bounds))
+                    {
+                        npop1List.Remove(np1);
+                        Controls.Remove(np1);
+                        punkty = punkty - 100;
+                        Score.Text = $"Score: {punkty}";
+                        //  sub2Punkty();
+                        break;
                     }
+
                 }
             }
             catch { }
@@ -242,17 +397,18 @@ namespace Matematyczny_Wąż
             {
                 foreach (niepoprawne2 np2 in npop2List)
                 {
-                    foreach (waz w in Controls.OfType<waz>())
+
+                    if (gracz.Bounds.IntersectsWith(np2.Bounds))
                     {
-                        if (w.Bounds.IntersectsWith(np2.Bounds))
-                        {
-                            npop2List.Remove(np2);
-                            Controls.Remove(np2);
-                            sub2Punkty();
+                        npop2List.Remove(np2);
+                        Controls.Remove(np2);
+                        punkty = punkty - 100;
+                        Score.Text = $"Score: {punkty}";
+                        //  sub2Punkty();
 
-
-                        }
+                        break;
                     }
+
                 }
             }
             catch { }
@@ -265,6 +421,33 @@ namespace Matematyczny_Wąż
             p.Location = new Point(p.Location.X, p.Location.Y + 3);
             np1.Location = new Point(np1.Location.X, np1.Location.Y + 3);
             np2.Location = new Point(np2.Location.X, np2.Location.Y + 3);
+            foreach (Stone s in StoneList)
+            {
+                s.Location = new Point(s.Location.X, s.Location.Y + 3);
+            }
+
+
+
+            if (czylewo)
+            {
+                gracz.Location = new Point(gracz.Location.X - 10, gracz.Location.Y);
+
+            }
+            else if (czyprawo)
+            {
+                gracz.Location = new Point(gracz.Location.X + 10, gracz.Location.Y);
+
+            }
+
+            if (p.Location.Y > 1000 || np1.Location.Y > 1000 || np2.Location.Y > 1000)
+            {
+                popList.Remove(p);
+                Controls.Remove(p);
+                npop1List.Remove(np1);
+                Controls.Remove(np1);
+                npop2List.Remove(np2);
+                Controls.Remove(np2);
+            }
         }
         private void tmrrownania_Tick(object sender, EventArgs e)
         {
@@ -313,48 +496,39 @@ namespace Matematyczny_Wąż
 
             Controls.Add(r);
 
-
-
-
-        }
-
-
-
-        private void ans_Tick(object sender, EventArgs e)
-        {
             Random location = new Random();
             int l = location.Next(1, 6);
             switch (l)
             {
                 case 1:
-                    p.Location = new Point(10, -400);
-                    np1.Location = new Point(400, -400);
-                    np2.Location = new Point(700, -400);
+                    p.Location = new Point(100, -600);
+                    np1.Location = new Point(600, -600);
+                    np2.Location = new Point(1100, -600);
                     break;
                 case 2:
-                    p.Location = new Point(10, -400);
-                    np2.Location = new Point(400, -400);
-                    np1.Location = new Point(700, -400);
+                    p.Location = new Point(100, -600);
+                    np2.Location = new Point(600, -600);
+                    np1.Location = new Point(1100, -600);
                     break;
                 case 3:
-                    np1.Location = new Point(10, -400);
-                    np2.Location = new Point(400, -400);
-                    p.Location = new Point(700, -400);
+                    np1.Location = new Point(100, -600);
+                    np2.Location = new Point(600, -600);
+                    p.Location = new Point(1100, -600);
                     break;
                 case 4:
-                    np1.Location = new Point(10, -400);
-                    p.Location = new Point(400, -400);
-                    np2.Location = new Point(700, -400);
+                    np1.Location = new Point(100, -600);
+                    p.Location = new Point(600, -600);
+                    np2.Location = new Point(1100, -600);
                     break;
                 case 5:
-                    np2.Location = new Point(10, -400);
-                    p.Location = new Point(400, -400);
-                    np1.Location = new Point(700, -400);
+                    np2.Location = new Point(100, -600);
+                    p.Location = new Point(600, -600);
+                    np1.Location = new Point(1100, -600);
                     break;
                 case 6:
-                    np2.Location = new Point(10, -400);
-                    np1.Location = new Point(400, -400);
-                    p.Location = new Point(700, -400);
+                    np2.Location = new Point(100, -600);
+                    np1.Location = new Point(600, -600);
+                    p.Location = new Point(1100, -600);
                     break;
             }
             Random falsz = new Random();
@@ -373,6 +547,15 @@ namespace Matematyczny_Wąż
             Controls.Add(p);
             Controls.Add(np1);
             Controls.Add(np2);
+
+
+        }
+
+
+
+        private void ans_Tick(object sender, EventArgs e)
+        {
+
         }
 
         private void look_Tick_1(object sender, EventArgs e)
@@ -413,7 +596,7 @@ namespace Matematyczny_Wąż
         int ticks = 0;
         private void stopgencount_Tick(object sender, EventArgs e)
         {
-       
+
 
             if (ticks == 10)
             {
@@ -421,11 +604,11 @@ namespace Matematyczny_Wąż
                 timer2.Stop();
 
             }
-            else if (ticks == 11)
+            else if (ticks == 12)
             {
                 timer3.Start();
                 timer2.Start();
-                ticks = ticks - 11;
+                ticks = ticks - 10;
             }
             ticks++;
 

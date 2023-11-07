@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 
 namespace Matematyczny_Wąż
 {
-    public class waz : PictureBox
+    internal class escmenu : PictureBox
     {
-
-        public waz()
+        public escmenu()
         {
-
-            this.Image = Resources.w2;
-
-            this.Size = new Size(69,225);
+           // this.Image = Resources.tlo;
+            this.Size = new Size(1280, 1024);
             this.SizeMode = PictureBoxSizeMode.Zoom;
-            this.BackColor = Color.Transparent;
+            this.BackColor = Color.White;
 
 
         }

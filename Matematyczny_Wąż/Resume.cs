@@ -4,23 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Matematyczny_Wąż
 {
-    public class waz : PictureBox
+    internal class Resume : Button
     {
-
-        public waz()
+        public Resume()
         {
 
-            this.Image = Resources.w2;
 
-            this.Size = new Size(69,225);
-            this.SizeMode = PictureBoxSizeMode.Zoom;
+            this.Text = "WZNOW";
+            this.Size = new Size(187, 133);      
+            this.BackColor = Color.White;
             this.BackColor = Color.Transparent;
 
-
         }
-
     }
 }
