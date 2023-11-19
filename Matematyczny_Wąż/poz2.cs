@@ -6,26 +6,25 @@ using System.Threading.Tasks;
 
 namespace Matematyczny_Wąż
 {
-    public class niepoprawne2 : Label
+    public class poz2 : Label
     {
-
-        public niepoprawne2()
+        public poz2()
         {
 
 
-            this.BackColor = Color.LightSkyBlue;
+
+
             this.AutoSize = true;
-            this.Font = new Font("Segoe UI Black", 17.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            this.Font = new Font("Segoe UI Black", 30.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             this.ForeColor = SystemColors.WindowText;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.MinimumSize = new Size(400, 60);
             this.TextAlign = ContentAlignment.MiddleCenter;
             this.Size = new Size(150, 45);
             this.TabIndex = 4;
-
-
+            this.Text = "POZIOM 2";
+            this.Location = new Point(440, -150);
 
         }
-
     }
 }

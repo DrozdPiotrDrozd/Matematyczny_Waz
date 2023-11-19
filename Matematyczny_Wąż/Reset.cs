@@ -13,7 +13,7 @@ namespace Matematyczny_Wąż
 
 
             this.Text = "RESET";
-            this.Size = new Size(187, 133);
+            this.Size = new Size(200, 100);
             this.BackColor = Color.White;
             this.BackColor = Color.Transparent;
 

@@ -4,20 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Matematyczny_Wąż
 {
-    internal class Resume : Button
+    public class kloda : PictureBox
     {
-        public Resume()
+        public kloda()
         {
 
+            this.Image = Resources.kloda;
 
-            this.Text = "WZNOW";
-            this.Size = new Size(200, 100);      
-            this.BackColor = Color.White;
+            this.Size = new Size(286, 87);
+            this.SizeMode = PictureBoxSizeMode.Zoom;
             this.BackColor = Color.Transparent;
+
 
         }
     }
