@@ -10,17 +10,19 @@ using System.Windows.Forms;
 
 namespace Matematyczny_Wąż
 {
-    public partial class Start : Form
+    public partial class Resett : Form
     {
-        public Start()
+        public Resett()
         {
             InitializeComponent();
         }
 
-        private void Start_Load(object sender, EventArgs e)
+        private void Resett_Load(object sender, EventArgs e)
         {
-            StartScreen startscreen = new StartScreen();
-            startscreen.Show();
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
+
         }
     }
 }

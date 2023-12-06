@@ -103,7 +103,7 @@
             // kloda_timer
             // 
             kloda_timer.Enabled = true;
-            kloda_timer.Interval = 5000;
+            kloda_timer.Interval = 5700;
             kloda_timer.Tick += kloda_timer_Tick;
             // 
             // poziomy
@@ -126,7 +126,7 @@
             // 
             ruchpoz.Enabled = true;
             ruchpoz.Interval = 15;
-            ruchpoz.Tick += ruchpoz_Tick;
+          //  ruchpoz.Tick += ruchpoz_Tick;
             // 
             // timer1
             // 
@@ -138,7 +138,7 @@
             // 
             timer6.Enabled = true;
             timer6.Interval = 15;
-            timer6.Tick += timer6_Tick;
+          // timer6.Tick += timer6_Tick;
             // 
             // Form1
             // 

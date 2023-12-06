@@ -16,13 +16,18 @@ namespace Matematyczny_Wąż
         {
             InitializeComponent();
         }
-        
+
         private void Loadgame(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
             form1.Show();
             this.Close();
-            
+
+        }
+
+        private void StartScreen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

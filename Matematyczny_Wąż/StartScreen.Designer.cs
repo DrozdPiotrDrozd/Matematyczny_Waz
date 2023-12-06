@@ -63,6 +63,7 @@
             Controls.Add(label1);
             Name = "StartScreen";
             Text = "StartScreen";
+            Load += StartScreen_Load;
             ResumeLayout(false);
             PerformLayout();
         }

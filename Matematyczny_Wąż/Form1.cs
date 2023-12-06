@@ -1,10 +1,4 @@
 using Matematyczny_Wąż.Properties;
-using System;
-using System.Drawing.Text;
-using System.Threading;
-using System.Windows.Forms;
-using System.Xml.Serialization;
-using static System.Windows.Forms.DataFormats;
 
 namespace Matematyczny_Wąż
 {
@@ -51,57 +45,32 @@ namespace Matematyczny_Wąż
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ruchpoz.Stop();
+
+            poz1 poz1 = new poz1();
+            poz1List.Add(poz1);
+            Controls.Add(poz1);
+            poz1.Visible = true;
+
             timer6.Stop();
-            timer1.Stop();
-            timer5.Stop();
-            timer4.Stop();
+
+
             timer3.Stop();
             timer2.Stop();
             tmrrownania.Stop();
-            look.Stop();
+
             stopgencount.Stop();
             kloda_timer.Stop();
-            gracz.Visible = false;
+
             np1.Visible = false;
             np2.Visible = false;
             p.Visible = false;
             r.Visible = false;
             Score.Visible = false;
 
-            Controls.Add(startbtn);
-            startbtn.Click += start;
-        }
-
-        void start(Object sender, EventArgs e)
-
-        {
-            Controls.Add(poz1);
-            poz1.Visible = true;
             timer1.Start();
 
-            Controls.Remove(startbtn);
-            timer5.Start();
-            timer4.Start();
-            look.Start();
             gracz.Visible = true;
-            /*  gracz.Visible = true;
-              np1.Visible = true;
-              np2.Visible = true;
-              p.Visible = true;
-              r.Visible = true;
-              Score.Visible = true;
-
-
-              timer5.Start();
-              timer4.Start();
-              timer3.Start();
-              timer2.Start();
-
-              tmrrownania.Start();
-              look.Start();
-              stopgencount.Start();
-            */
+            punkty = 500;
         }
 
 
@@ -165,84 +134,10 @@ namespace Matematyczny_Wąż
             void resecik(Object sender, EventArgs e)
 
             {
+                Resett reset = new Resett();
+                reset.Show();
+                this.Close();
 
-                foreach (Stone s in StoneList)
-                {
-                    StoneList.Remove(s);
-                    Controls.Remove(s);
-                    break;
-                }
-                foreach (kloda k in klodaList)
-                {
-                    klodaList.Remove(k);
-                    Controls.Remove(k);
-
-                    break;
-                }
-
-                foreach (poprawne p in popList)
-                {
-                    popList.Remove(p);
-                    Controls.Remove(p);
-                    break;
-                }
-
-
-                foreach (niepoprawne1 np1 in npop1List)
-                {
-
-                    npop1List.Remove(np1);
-                    Controls.Remove(np1);
-                    break;
-                }
-
-                foreach (niepoprawne2 np2 in npop2List)
-                {
-                    npop2List.Remove(np2);
-                    Controls.Remove(np2);
-                    break;
-                }
-
-                Controls.Remove(r);
-                punkty = 0;
-                Score.Text = $"Score: {punkty}";
-                timer5.Stop();
-                timer4.Stop();
-                timer3.Stop();
-                kloda_timer.Stop();
-                timer2.Stop();
-                tmrrownania.Stop();
-                look.Stop();
-                stopgencount.Stop();
-
-                timer5.Start();
-                timer4.Start();
-                timer3.Start();
-                kloda_timer.Start();
-                timer2.Start();
-                tmrrownania.Start();
-                look.Start();
-                stopgencount.Start();
-                try
-                {
-                    foreach (Stone s in StoneList)
-                    {
-
-                        s.Visible = true;
-
-                    }
-                }
-                catch { }
-                gracz.Visible = true;
-                np1.Visible = true;
-                np2.Visible = true;
-                p.Visible = true;
-                r.Visible = true;
-                Score.Visible = true;
-
-                Controls.Remove(returntomenu);
-                Controls.Remove(resume);
-                Controls.Remove(reset);
             }
 
 
@@ -250,69 +145,10 @@ namespace Matematyczny_Wąż
             void ret(Object sender, EventArgs e)
 
             {
+                StartScreen start = new StartScreen();
+                start.Show();
+                this.Close();
 
-                foreach (Stone s in StoneList)
-                {
-                    StoneList.Remove(s);
-                    Controls.Remove(s);
-
-                    break;
-                }
-                foreach (kloda k in klodaList)
-                {
-                    klodaList.Remove(k);
-                    Controls.Remove(k);
-
-                    break;
-                }
-
-                foreach (poprawne p in popList)
-                {
-                    popList.Remove(p);
-                    Controls.Remove(p);
-                    break;
-                }
-
-                foreach (niepoprawne1 np1 in npop1List)
-                {
-
-                    npop1List.Remove(np1);
-                    Controls.Remove(np1);
-                    break;
-                }
-
-                foreach (niepoprawne2 np2 in npop2List)
-                {
-                    npop2List.Remove(np2);
-                    Controls.Remove(np2);
-                    break;
-                }
-
-
-                Controls.Remove(r);
-                punkty = 0;
-
-                Score.Text = $"Score: {punkty}";
-                Controls.Remove(returntomenu);
-                Controls.Remove(resume);
-                Controls.Remove(reset);
-                timer5.Stop();
-                timer4.Stop();
-                timer3.Stop();
-                kloda_timer.Stop();
-                timer2.Stop();
-                tmrrownania.Stop();
-                look.Stop();
-                stopgencount.Stop();
-                gracz.Visible = false;
-                np1.Visible = false;
-                np2.Visible = false;
-                p.Visible = false;
-                r.Visible = false;
-                Score.Visible = false;
-
-                Controls.Add(startbtn);
-                startbtn.Click += start;
             }
             void res(Object sender, EventArgs e)
 
@@ -373,11 +209,12 @@ namespace Matematyczny_Wąż
         {
 
         }
-
+        public static List<poz1> poz1List = new List<poz1>();
+        public static List<poz2> poz2List = new List<poz2>();
+        public static List<poz3> poz3List = new List<poz3>();
         public static List<Stone> StoneList = new List<Stone>();
         public static List<kloda> klodaList = new List<kloda>();
         public static List<poprawne> popList = new List<poprawne>();
-        public static List<niepoprawne1> npop1List = new List<niepoprawne1>();
         public static List<niepoprawne2> npop2List = new List<niepoprawne2>();
         public static List<rownanie> rowList = new List<rownanie>();
 
@@ -531,103 +368,128 @@ namespace Matematyczny_Wąż
             }
             catch { }
 
-            if (gracz.Bounds.IntersectsWith(poz1.Bounds))
+            try
             {
-                ticks = 0;
-                Controls.Remove(poz1);
-                gracz.Visible = true;
-                np1.Visible = true;
-                np2.Visible = true;
-                p.Visible = true;
-                r.Visible = true;
-                Score.Visible = true;
+                foreach (poz1 poz1 in poz1List)
+                {
+                    if (gracz.Bounds.IntersectsWith(poz1.Bounds))
+                    {
+                        ticks = 0;
+                        Controls.Remove(poz1);
+                        gracz.Visible = true;
+                        np1.Visible = true;
+                        np2.Visible = true;
+                        p.Visible = true;
+                        r.Visible = true;
+                        Score.Visible = true;
 
-                timer3.Interval = 2500;
-                timer2.Interval = 3000;
-                stopgencount.Interval = 1000;
+                        timer3.Interval = 2500;
+                        timer2.Interval = 3000;
+                        stopgencount.Interval = 1000;
+                        punkty = 0;
+                        timer5.Start();
+                        timer4.Start();
+                        timer3.Start();
+                        timer2.Start();
+                        stopgencount.Start();
 
-                timer4.Start();
-                timer3.Start();
-                timer2.Start();
-                stopgencount.Start();
+                        tmrrownania.Start();
+                        look.Start();
+                        break;
 
-                tmrrownania.Start();
-                look.Start();
 
+                    }
+
+
+                }
             }
-            if (gracz.Bounds.IntersectsWith(poz2.Bounds))
+            catch { }
+            try
             {
+                foreach (poz2 poz2 in poz2List)
+                {
+                    if (gracz.Bounds.IntersectsWith(poz2.Bounds))
+                    {
 
-                Controls.Remove(poz2);
-                gracz.Visible = true;
-                np1.Visible = true;
-                np2.Visible = true;
-                p.Visible = true;
-                r.Visible = true;
-                Score.Visible = true;
-                ticks = 0;
+                        Controls.Remove(poz2);
+                        gracz.Visible = true;
+                        np1.Visible = true;
+                        np2.Visible = true;
+                        p.Visible = true;
+                        r.Visible = true;
+                        Score.Visible = true;
+                        ticks = 0;
 
-                timer3.Start();
-                timer2.Start();
+                        timer3.Start();
+                        timer2.Start();
 
-                kloda_timer.Start();
+                        kloda_timer.Start();
 
 
 
-                stopgencount.Start();
-                timer4.Start();
+                        stopgencount.Start();
+                        timer4.Start();
 
-                timer3.Interval = 2500;
-                timer2.Interval = 3000;
-                stopgencount.Interval = 1000;
+                        timer3.Interval = 2500;
+                        timer2.Interval = 3000;
+                        stopgencount.Interval = 1000;
 
-                tmrrownania.Interval = 10000;
-                tmrrownania.Start();
+                        tmrrownania.Interval = 10000;
+                        tmrrownania.Start();
 
-                look.Start();
+                        look.Start();
 
-                liczydlo = -100000;
+                        liczydlo = -100000;
 
-                Score.Visible = true;
-
+                        Score.Visible = true;
+                        break;
+                    }
+                }
             }
-            if (gracz.Bounds.IntersectsWith(poz3.Bounds))
+            catch { }
+            try
             {
-                Controls.Remove(poz3);
-                gracz.Visible = true;
-                np1.Visible = true;
-                np2.Visible = true;
-                p.Visible = true;
-                r.Visible = true;
-                Score.Visible = true;
-                ticks = 0;
+                foreach (poz3 poz3 in poz3List)
+                {
+                    if (gracz.Bounds.IntersectsWith(poz3.Bounds))
+                    {
+                        Controls.Remove(poz3);
+                        gracz.Visible = true;
+                        np1.Visible = true;
+                        np2.Visible = true;
+                        p.Visible = true;
+                        r.Visible = true;
+                        Score.Visible = true;
+                        ticks = 0;
 
-                timer3.Start();
-                timer2.Start();
+                        timer3.Start();
+                        timer2.Start();
 
-                kloda_timer.Start();
-
-
-
-                stopgencount.Start();
-                timer4.Start();
-
-                timer3.Interval = 2500;
-                timer2.Interval = 3000;
-                stopgencount.Interval = 1000;
-
-                tmrrownania.Interval = 10000;
-                tmrrownania.Start();
-
-                look.Start();
+                        kloda_timer.Start();
 
 
 
-                Score.Visible = true;
+                        stopgencount.Start();
+                        timer4.Start();
 
-                poziom3 = -100000;
-                Score.Visible = true;
+                        timer3.Interval = 2500;
+                        timer2.Interval = 3000;
+                        stopgencount.Interval = 1000;
+
+                        tmrrownania.Interval = 10000;
+                        tmrrownania.Start();
+
+                        look.Start();
+
+
+
+                        poziom3 = -100000;
+                        Score.Visible = true;
+                        break;
+                    }
+                }
             }
+            catch { }
         }
 
 
@@ -826,180 +688,39 @@ namespace Matematyczny_Wąż
             {
                 timer3.Stop();
                 timer2.Stop();
-                kloda_timer.Stop();
+
             }
             else if (ticks == 11)
             {
                 timer3.Start();
                 timer2.Start();
 
-                kloda_timer.Start();
+
                 ticks = ticks - 10;
             }
 
             ticks++;
 
         }
-        void rest(Object sender, EventArgs e)
-
-        {
-            Controls.Add(poz1);
-            poz1.Visible = true;
-            timer1.Start();
-
-            foreach (Stone s in StoneList)
-            {
-                StoneList.Remove(s);
-                Controls.Remove(s);
-                break;
-            }
-            foreach (kloda k in klodaList)
-            {
-                klodaList.Remove(k);
-                Controls.Remove(k);
-
-                break;
-            }
-
-            foreach (poprawne p in popList)
-            {
-                popList.Remove(p);
-                Controls.Remove(p);
-                break;
-            }
-
-
-            foreach (niepoprawne1 np1 in npop1List)
-            {
-
-                npop1List.Remove(np1);
-                Controls.Remove(np1);
-                break;
-            }
-
-            foreach (niepoprawne2 np2 in npop2List)
-            {
-                npop2List.Remove(np2);
-                Controls.Remove(np2);
-                break;
-            }
-
-            Controls.Remove(r);
-            punkty = 0;
-            Score.Text = $"Score: {punkty}";
-            timer5.Stop();
-            timer4.Stop();
-            timer3.Stop();
-            kloda_timer.Stop();
-            timer2.Stop();
-            tmrrownania.Stop();
-            look.Stop();
-            stopgencount.Stop();
-
-            timer5.Start();
-            timer4.Start();
-            timer3.Start();
-            kloda_timer.Start();
-            timer2.Start();
-            tmrrownania.Start();
-            look.Start();
-            stopgencount.Start();
-            try
-            {
-                foreach (Stone s in StoneList)
-                {
-
-                    s.Visible = true;
-
-                }
-            }
-            catch { }
-            gracz.Visible = true;
-            np1.Visible = true;
-            np2.Visible = true;
-            p.Visible = true;
-            r.Visible = true;
-            Score.Visible = true;
-
-            Controls.Remove(returntomenu);
-            Controls.Remove(resume);
-            Controls.Remove(reset);
-        }
 
         void returnto(Object sender, EventArgs e)
 
         {
+            StartScreen start = new StartScreen();
+            start.Show();
+            this.Close();
 
-            foreach (Stone s in StoneList)
-            {
-                StoneList.Remove(s);
-                Controls.Remove(s);
-
-                break;
-            }
-            foreach (kloda k in klodaList)
-            {
-                klodaList.Remove(k);
-                Controls.Remove(k);
-
-                break;
-            }
-
-            foreach (poprawne p in popList)
-            {
-                popList.Remove(p);
-                Controls.Remove(p);
-                break;
-            }
-
-            foreach (niepoprawne1 np1 in npop1List)
-            {
-
-                npop1List.Remove(np1);
-                Controls.Remove(np1);
-                break;
-            }
-
-            foreach (niepoprawne2 np2 in npop2List)
-            {
-                npop2List.Remove(np2);
-                Controls.Remove(np2);
-                break;
-            }
-
-
-            Controls.Remove(r);
-            punkty = 0;
-
-            Score.Text = $"Score: {punkty}";
-            Controls.Remove(returntomenu);
-            Controls.Remove(resume);
-            Controls.Remove(reset);
-            timer5.Stop();
-            timer4.Stop();
-            timer3.Stop();
-            kloda_timer.Stop();
-            timer2.Stop();
-            tmrrownania.Stop();
-            look.Stop();
-            stopgencount.Stop();
-            gracz.Visible = false;
-            np1.Visible = false;
-            np2.Visible = false;
-            p.Visible = false;
-            r.Visible = false;
-            Score.Visible = false;
-
-            Controls.Add(startbtn);
-            startbtn.Click += start;
         }
         public void poziomy_Tick(object sender, EventArgs e)
         {
 
-            if (liczydlo >= 100)
+            if (liczydlo >= 300)
             {
-                // ticks = 0;
+                liczydlo  = 0;
+                poz2 poz2 = new poz2();
+                poz2List.Add(poz2);
                 Controls.Add(poz2);
+                poz2.Visible = true;
 
                 ruchpoz.Start();
                 foreach (Stone s in StoneList)
@@ -1043,36 +764,16 @@ namespace Matematyczny_Wąż
                 look.Stop();
 
 
-                /*timer5.Start();
-                timer4.Start();
-                timer3.Start();
-                kloda_timer.Start();
-                timer2.Start();
-                tmrrownania.Start();
-                look.Start();
-                stopgencount.Start();
-                try
-                {
-                    foreach (Stone s in StoneList)
-                    {
 
-                        s.Visible = true;
-
-                    }
-                }
-                catch { }
-                gracz.Visible = true;
-                np1.Visible = true;
-                np2.Visible = true;
-                p.Visible = true;
-                r.Visible = true;
-                Score.Visible = true; */
             }
-            if (poziom3 >= 200)
+            if (poziom3 >= 400)
             {
-
+                poz3 poz3 = new poz3();
+                poz3List.Add(poz3);
                 Controls.Add(poz3);
+                poz3.Visible = true;
 
+                poziom3 = 0;
                 timer6.Start();
 
                 foreach (Stone s in StoneList)
@@ -1116,22 +817,19 @@ namespace Matematyczny_Wąż
                 look.Stop();
 
             }
-            if (wygrana >= 300)
+            if (wygrana >= 600)
             {
                 timer1.Stop();
                 timer6.Stop();
                 ruchpoz.Stop();
                 wygrana = 0;
-                Controls.Add(reset);
 
-                reset.Click += rest;
-
-
-                Controls.Add(returntomenu);
-                returntomenu.Click += returnto;
                 Controls.Add(koniec);
                 koniec.Visible = true;
 
+                returntomenu.Location = new Point(540, 600);
+                Controls.Add(returntomenu);
+                returntomenu.Click += returnto;
 
                 foreach (Stone s in StoneList)
                 {
@@ -1190,20 +888,32 @@ namespace Matematyczny_Wąż
 
         }
 
-        private void ruchpoz_Tick(object sender, EventArgs e)
-        {
-            poz2.Location = new Point(poz2.Location.X, poz2.Location.Y + 3);
-        }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            poz1.Location = new Point(poz1.Location.X, poz1.Location.Y + 3);
+            foreach (poz1 p in poz1List)
+            {
+                p.Location = new Point(p.Location.X, p.Location.Y + 3);
+            }
+            foreach (poz2 p in poz2List)
+            {
+                p.Location = new Point(p.Location.X, p.Location.Y + 3);
+            }
+            foreach (poz3 p in poz3List)
+            {
+                p.Location = new Point(p.Location.X, p.Location.Y + 3);
+            }
         }
 
-        private void timer6_Tick(object sender, EventArgs e)
+        /*private void timer6_Tick(object sender, EventArgs e)
         {
             poz3.Location = new Point(poz3.Location.X, poz3.Location.Y + 3);
         }
+        private void ruchpoz_Tick(object sender, EventArgs e)
+        {
+            poz2.Location = new Point(poz2.Location.X, poz2.Location.Y + 3);
+        }*/
     }
 
 

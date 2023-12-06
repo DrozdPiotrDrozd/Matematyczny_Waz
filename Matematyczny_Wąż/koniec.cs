@@ -15,15 +15,15 @@ namespace Matematyczny_Wąż
 
 
             this.AutoSize = true;
-            this.Font = new Font("Segoe UI Black", 30.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            this.Font = new Font("Segoe UI Black", 40.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             this.ForeColor = SystemColors.WindowText;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.MinimumSize = new Size(400, 60);
+            this.MinimumSize = new Size(400, 200);
             this.TextAlign = ContentAlignment.MiddleCenter;
             this.Size = new Size(150, 45);
             this.TabIndex = 4;
             this.Text = "UKOŃCZYŁEŚ GRĘ";
-            this.Location = new Point(440, 10);
+            this.Location = new Point(310, 300);
 
         }
     }

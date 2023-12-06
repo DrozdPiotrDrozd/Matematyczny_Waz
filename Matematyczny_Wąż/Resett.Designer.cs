@@ -1,6 +1,6 @@
 ﻿namespace Matematyczny_Wąż
 {
-    partial class Start
+    partial class Resett
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             SuspendLayout();
             // 
-            // Start
+            // Resett
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(148, 0);
-            Name = "Start";
-            Text = "Start";
-            Load += Start_Load;
+            ClientSize = new Size(148, 55);
+            Name = "Resett";
+            Text = "Resett";
+            Load += Resett_Load;
             ResumeLayout(false);
         }
 
