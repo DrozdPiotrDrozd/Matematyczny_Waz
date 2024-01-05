@@ -2,27 +2,23 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Matematyczny_Wąż
 {
-
-    public class Stone: PictureBox
+    public class krokodyl : PictureBox
     {
+        public krokodyl()
+        {
 
-      public Stone() {
+            this.Image = Resources.krok;
 
-            this.Image = Resources.glaz;
-
-            this.Size = new Size(169, 124);
+            this.Size = new Size(179, 176);
             this.SizeMode = PictureBoxSizeMode.Zoom;
             this.BackColor = Color.Transparent;
-            
+
 
         }
-
     }
 }

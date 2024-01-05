@@ -14,7 +14,7 @@ namespace Matematyczny_Wąż
 
             this.Image = Resources.kloda;
 
-            this.Size = new Size(286, 87);
+            this.Size = new Size(238, 73);
             this.SizeMode = PictureBoxSizeMode.Zoom;
             this.BackColor = Color.Transparent;
 

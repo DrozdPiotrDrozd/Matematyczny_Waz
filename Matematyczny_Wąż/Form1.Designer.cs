@@ -42,18 +42,27 @@
             label1 = new Label();
             ruchpoz = new System.Windows.Forms.Timer(components);
             timer1 = new System.Windows.Forms.Timer(components);
-            timer6 = new System.Windows.Forms.Timer(components);
+            stopgenkrok = new System.Windows.Forms.Timer(components);
+            stopgenkloda = new System.Windows.Forms.Timer(components);
+            krokodylgen = new System.Windows.Forms.Timer(components);
+            pauza = new System.Windows.Forms.Timer(components);
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // Score
             // 
+            Score.AutoEllipsis = true;
             Score.AutoSize = true;
             Score.BackColor = Color.Khaki;
+            Score.BorderStyle = BorderStyle.Fixed3D;
             Score.Font = new Font("Segoe UI Black", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             Score.ForeColor = SystemColors.WindowText;
             Score.Location = new Point(1099, 18);
             Score.Name = "Score";
-            Score.Size = new Size(101, 31);
+            Score.Size = new Size(103, 33);
             Score.TabIndex = 4;
             Score.Text = "Score: 0";
             Score.Click += label1_Click;
@@ -103,13 +112,13 @@
             // kloda_timer
             // 
             kloda_timer.Enabled = true;
-            kloda_timer.Interval = 5700;
+            kloda_timer.Interval = 4000;
             kloda_timer.Tick += kloda_timer_Tick;
             // 
             // poziomy
             // 
             poziomy.Enabled = true;
-            poziomy.Interval = 15;
+            poziomy.Interval = 5;
             poziomy.Tick += poziomy_Tick;
             // 
             // label1
@@ -126,7 +135,7 @@
             // 
             ruchpoz.Enabled = true;
             ruchpoz.Interval = 15;
-          //  ruchpoz.Tick += ruchpoz_Tick;
+            ruchpoz.Tick += ruchpoz_Tick;
             // 
             // timer1
             // 
@@ -134,18 +143,60 @@
             timer1.Interval = 15;
             timer1.Tick += timer1_Tick;
             // 
-            // timer6
+            // stopgenkrok
             // 
-            timer6.Enabled = true;
-            timer6.Interval = 15;
-          // timer6.Tick += timer6_Tick;
+            stopgenkrok.Enabled = true;
+            stopgenkrok.Interval = 15;
+            stopgenkrok.Tick += timer6_Tick;
+            // 
+            // stopgenkloda
+            // 
+            stopgenkloda.Enabled = true;
+            stopgenkloda.Interval = 1000;
+            stopgenkloda.Tick += stopgenkloda_Tick;
+            // 
+            // krokodylgen
+            // 
+            krokodylgen.Enabled = true;
+            krokodylgen.Interval = 6500;
+            krokodylgen.Tick += krokodylgen_Tick;
+            // 
+            // pauza
+            // 
+            pauza.Enabled = true;
+            pauza.Interval = 10;
+            pauza.Tick += pauza_Tick;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.reset;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(467, 398);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(310, 257);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = Properties.Resources.retmenu;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(467, 98);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(303, 265);
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Khaki;
+            BackColor = Color.ForestGreen;
             ClientSize = new Size(1262, 977);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(Score);
             Margin = new Padding(3, 4, 3, 4);
@@ -154,6 +205,8 @@
             Load += Form1_Load;
             KeyDown += ruch;
             KeyUp += keyup;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -172,6 +225,11 @@
         private Label label1;
         private System.Windows.Forms.Timer ruchpoz;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer6;
+        private System.Windows.Forms.Timer stopgenkrok;
+        private System.Windows.Forms.Timer stopgenkloda;
+        private System.Windows.Forms.Timer krokodylgen;
+        private System.Windows.Forms.Timer pauza;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }
