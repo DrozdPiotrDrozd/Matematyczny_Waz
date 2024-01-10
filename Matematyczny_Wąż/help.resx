@@ -6882,4 +6882,15 @@
         JUqUKFGiRIn6YgTw/wBdi47oFgLYKQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Użytkownik rozpoczyna sterowanie wężem po polu w linii poziomej (prawo, lewo).
+Gracz musi omijać przeszkody w postaci np głazów.
+W górnej części ekranu pojawi się równanie, które należy rozwiązać.
+Użytkownik powinien omijać przeszkody do momentu pojawienia się na ekranie spadających
+pól z wynikami równania. Zadaniem gracza jest wybór poprawnej odpowiedzi.
+Jeżeli wybrana zostanie właściwa odpowiedź wąż zwiększa swój rozmiar, gdy wybór będzie
+błędny wąż się skurczy.
+Uzyskując odpowiednią ilość punktów (maksymalny rozmiar węża) poziom trudności się zwiększa.
+</value>
+  </data>
 </root>
